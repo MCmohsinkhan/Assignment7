@@ -1,6 +1,6 @@
 public abstract class BankAccount {
 
-  int accNumb, numWithdraws;
+	int accNumb, numWithdraws;
 	double balance;
 	boolean status;
 
