@@ -1,6 +1,6 @@
 public class checkingAccount extends BankAccount {
 
-  public checkingAccount(int accNumb) {
+	public checkingAccount(int accNumb) {
 		super(accNumb);
 	}
 
