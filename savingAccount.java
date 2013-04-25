@@ -1,4 +1,5 @@
 public class savingAccount extends BankAccount {
+	String accName = "Saving Account";
 
 	public savingAccount(int accNumb) {
 		super(accNumb);
@@ -36,7 +37,8 @@ public class savingAccount extends BankAccount {
 	}
 
 	public String toString() {
-		return "accNumb " + accNumb + "\n" + "numWithdraws " + numWithdraws
-				+ "\n" + "balance " + balance + "\n" + "status " + status;
+		return "accName " + accName + "\n" + "accNumb " + accNumb + "\n"
+				+ "numWithdraws " + numWithdraws + "\n" + "balance " + balance
+				+ "\n" + "status " + status;
 	}
 }
