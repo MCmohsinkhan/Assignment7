@@ -59,5 +59,4 @@ public abstract class BankAccount {
 	public String toString() {
 		return null;
 	}
-
 }
