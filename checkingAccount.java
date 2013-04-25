@@ -4,6 +4,8 @@ public class checkingAccount extends BankAccount {
 		super(accNumb);
 	}
 
+	String accName = "Checking Account";
+
 	double balance, penalty;
 
 	@Override
@@ -22,7 +24,8 @@ public class checkingAccount extends BankAccount {
 	}
 
 	public String toString() {
-		return "accNumb " + accNumb + "/n" + "numWithdraws " + numWithdraws
-				+ "/n" + "balance " + balance + "/n" + "status " + status;
+		return "accName " + accName + "\n" + "accNumb " + accNumb + "/n"
+				+ "numWithdraws " + numWithdraws + "/n" + "balance " + balance
+				+ "/n" + "status " + status;
 	}
 }
