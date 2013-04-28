@@ -1,0 +1,88 @@
+import java.util.*;
+import javax.swing.*;
+
+public class BankAccountManager {
+  	double totalBalance;
+		int numChecking=0, numSavings=0;
+		private static int index=0, cCount=0, sCount=0;
+		private static ArrayList<BankAccount> accountArrayList = new ArrayList<BankAccount>();
+		private static BankAccount accountArray[];
+		private static BankAccount c = new checkingAccount(); 
+		private static savingAccount s = new savingAccount();
+		
+		public static void addAccount(String type, int accNum, double balance, double interestRate){
+				if(type.equals("Checking"))
+				{
+					accountArrayList.add(index, c);
+					index++;
+					cCount++;
+					c.setAccNumb(accNum);
+					c.setBalance(balance);			
+				}
+				else if(type.equals("Savings"))
+				{
+					accountArrayList.add(index, s);
+					index++;
+					sCount++;
+					s.setAccNumb(accNum);
+					s.setBalance(balance);
+					s.setAIR(interestRate);
+				}
+		}
+		public static void array()
+		{
+			accountArray = accountArrayList.toArray(new BankAccount[accountArrayList.size()]);
+		}
+	
+		public static int getAccNum(int x)
+		{
+			return accountArray[x].getAccNumb();
+		}
+		public static void monthlyProcess()
+		{
+			for(int x=0; x<accountArrayList.size(); x++)
+			{
+				accountArray[x].monthlyProcess();
+			}
+			JOptionPane.showMessageDialog(null, "Monthly Process on all accounts Complete.");
+		}
+		public static double getTotalBalance()
+		{
+			double totalBalance=0;
+			for (int x=0; x<accountArrayList.size(); x++)
+				totalBalance += accountArray[x].getBalance();
+			return totalBalance;
+				
+		}
+		public static int search(int accNum)
+		{
+			for (int i=0; i<accountArrayList.size(); i++)
+			{
+				if(accountArray[i].getAccNumb() == accNum)
+					return i;
+			}
+			return -1;
+		}
+		public static void deposit(double amount, int accNum)
+		{
+			int i = search(accNum);
+			accountArray[i].deposit(amount);
+			JOptionPane.showMessageDialog(null, "Deposit of $" + amount + " Successful. Your new balance in account " + accountArray[i].accNumb + " is " + accountArray[i].balance + ".");
+		}
+		public static void withdraw(double amount, int accNum)
+		{
+			int i = search(accNum);
+			accountArray[i].withDraw(amount);
+			JOptionPane.showMessageDialog(null, "Withdrawal of $" + amount + " Successful. Your new balance in account " + accountArray[i].accNumb + " is " + accountArray[i].balance + ".");
+		}
+		public static String generateReport()
+		{
+			String reportMessage="ACCOUNT REPORT\n\nACC# BALANCE %RATE #WITHDRAWS\n_______________________________\n";
+			for (int x=0; x<accountArrayList.size(); x++)
+				reportMessage += accountArray[x].getAccNumb() + "   " + accountArray[x].getBalance() + "       " + accountArray[x].getAIR() + "      " + accountArray[x].getnumWithdraws() + "\n";
+			reportMessage += "\nTotal Balance: " + getTotalBalance();
+			reportMessage += "\nTotal number of saving Accounts: " + sCount;
+			reportMessage += "\nTotal number of checking Accounts: " + cCount;
+			return reportMessage;
+		}
+}
