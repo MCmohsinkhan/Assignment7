@@ -1,13 +1,12 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class GUI extends JFrame {
 
-  private String accountType;
-	private JPanel panel, panel1, panel2;
+  private JPanel panel, panel1;
 	private JRadioButton checkingRadioButton, savingsRadioButton;
 	private JButton saveAccount, deposit, withdrawal, monthlyProcess, report, exit;
 	private JLabel accountNumber, initialBalance, annualRate;
@@ -29,7 +28,7 @@ public class GUI extends JFrame {
 		
 		panel = new JPanel();
 		panel1 = new JPanel();
-		panel2 = new JPanel();
+		new JPanel();
 		accountNumber = new JLabel("Account Number");
 		initialBalance = new JLabel("Initial Balance");
 		annualRate = new JLabel("Annual Rate");
@@ -84,13 +83,11 @@ public class GUI extends JFrame {
 			String actionCommand = e.getActionCommand();
 			if ( actionCommand.equals("Checking"))
 			{
-				accountType = "Checking";
 				annualRate.setVisible(false);
 				annRateField.setVisible(false);
 			}
 			else if (actionCommand.equals("Savings"))
 			{
-				accountType = "Savings";
 				annualRate.setVisible(true);
 				annRateField.setVisible(true);
 			}
