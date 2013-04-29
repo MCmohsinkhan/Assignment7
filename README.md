@@ -9,6 +9,6 @@ Change Log:
     
 Working:
 
-* Saving accounts correctly
+* Saves accounts correctly
 * Resets the JTextFields after entering into the GUI
         (Helps the user to enter another user info and fixes some bugs)
