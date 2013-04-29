@@ -3,8 +3,12 @@ Assignment7
 
 CS103
 
-Run the Driver class after downloading the other classes.
+Change Log:
 
-V 0.01
+    4/28/2013
+    
+Working:
 
-Added better clearification on what account type is being used.
+* Saving acccounts correctly
+* Resets the JTextFields after entering into the GUI
+        (Helps the user to enter another user info and fixes some bugs)
