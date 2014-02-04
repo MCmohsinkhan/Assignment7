@@ -1,0 +1,18 @@
+import javax.swing.JFrame;
+public class Driver extends JFrame{
+
+public static void main (String[] args)
+{
+JFrame frame = new JFrame ("Bank Account");
+frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+
+GUI panel = new GUI();
+frame.getContentPane().add(panel);
+
+frame.pack();
+frame.setVisible(true);
+}
+
+
+}
+
