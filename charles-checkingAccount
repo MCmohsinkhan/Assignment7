@@ -1,0 +1,50 @@
+public class checkingAccount extends BankAccount {
+
+  public checkingAccount() 
+	{
+		numWithdraws = 0;
+		balance = 0;
+		status = true;
+		AIR = 0;
+		type = "Checking";
+	}
+
+	String accName = "Checking Account";
+
+	double balance, penalty;
+	int pCount = 0;
+
+	@Override
+	public void monthlyProcess() {
+
+		balance = getBalance();
+
+		if (balance < 10) {
+			setStatus(false);
+			penalty = 1;
+			if (balance>penalty)
+			{
+				balance -= penalty;
+				pCount++;
+				penalty++;
+			}
+			else
+			{
+				balance=0;
+				pCount++;
+				penalty++;
+			}
+		}
+
+	}
+	public double getAIR()
+	{
+		return 0;
+	}
+
+	public String toString() {
+		return "accName " + accName + "\n" + "accNumb " + accNumb + "/n"
+				+ "numWithdraws " + numWithdraws + "/n" + "balance " + balance
+				+ "/n" + "status " + status;
+	}
+}
